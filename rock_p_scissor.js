@@ -1,4 +1,4 @@
-const prompt=require('prompt-sync')();
+//const prompt=require('prompt-sync')();
 player_points=0;
 computer_points=0;
 function getComputerChoice()
@@ -20,7 +20,6 @@ function getComputerChoice()
 }
 function playRound(playerSelection, computerSelection) 
 {
-    let rock;
     let pl=playerSelection.toLowerCase();
     let co=computerSelection.toLowerCase();
     console.log(pl);
@@ -57,28 +56,76 @@ function playRound(playerSelection, computerSelection)
             return("its a Draw! Play next round");
         }
     }
-    // your code here!
 }
 function playGame()
 {
-    for(let i=1;i<=5;i++)
+    let choice=document.createElement("div");
+    let score=document.querySelector("#score");
+    let rockbut=document.querySelector("#rock");
+    let paperbut=document.querySelector("#paper");
+    let scissorbut=document.querySelector("#scissor");
+    let resetbut=document.querySelector("#reset");
+    let res=document.querySelector("#results");
+    let turn=document.querySelector("#turn");
+    let final=document.querySelector("#final");
+    let count=0;
+    turn.textContent="Turn number :0";  
+    score.textContent="Computer Score : 0 || Your Score : 0";
+    function checkGameStatus() 
     {
-        const playerSelection =prompt("enter your choice:") ;
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-        console.log(player_points);
-        console.log(computer_points);
+        if (computer_points === 5 || player_points===5) 
+        {
+            score.textContent=`Computer Score : ${computer_points} || Your Score : ${player_points}`;
+            if (player_points > computer_points)
+                final.textContent = "CONGRATULATIONS !! YOU WON ";
+            else
+                final.textContent = "Sorry, AI WON!";            
+        }
     }
-    if (player_points>computer_points)
-    console.log("Congratulations! You won the Game!");
-    else
-    console.log("GAME OVER .AI WON")
-    document.getElementById('results').textContent = 'Player score: ${player_points}, Computer score: ${computer_points}'
-}
-document.addEventListener('DOMContentLoaded', () => {
-    const startButton = document.getElementById('startButton');
-    startButton.addEventListener('click', () => {
-        playGame(); 
-    });
-});
+        resetbut.addEventListener("click",()=>{
+            count = 0;
+            res.textContent='';
+            player_points = 0;
+            computer_points = 0;
+            turn.textContent = "Turn number: 0";
+            score.textContent = `Computer Score : 0 || Your Score : 0`;
+            final.textContent='';
+        });
+        rockbut.addEventListener("click",()=>
+        {
+            const computerSelection = getComputerChoice();
+            let result=playRound("rock",computerSelection);
+            choice.textContent=`Computer choice: ${computerSelection} , Your Choice: rock`;
+            res.textContent=result;
+            res.appendChild(choice);
+            turn.textContent = `Turn number: ${++count}`;
+            score.textContent=`Computer Score : ${computer_points} || Your Score : ${player_points}`;
+            checkGameStatus();
+        });
+        paperbut.addEventListener("click",()=>
+        {
+            const computerSelection = getComputerChoice();
+            let result=playRound("paper",computerSelection);
+            choice.textContent=`Computer choice: ${computerSelection} , Your Choice: paper`;
+            res.textContent=result;
+            res.appendChild(choice);
+            turn.textContent = `Turn number: ${++count}`;
+            score.textContent=`Computer Score : ${computer_points} || Your Score : ${player_points}`;
+            checkGameStatus();
+        });
+        scissorbut.addEventListener("click",()=>
+        {
+            const computerSelection = getComputerChoice();
+            let result=playRound("scissor",computerSelection);
+            choice.textContent=`Computer choice: ${computerSelection} , Your Choice: scissor`;
+            res.textContent=result;
+            res.appendChild(choice);
+            turn.textContent = `Turn number: ${++count}`;
+            score.textContent=`Computer Score : ${computer_points} || Your Score : ${player_points}`;
+            checkGameStatus();
+        });
 
+} 
+playGame();
+
+//https://dbrah-design.github.io/rock-paper-scissors/
