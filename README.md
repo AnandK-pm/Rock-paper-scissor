@@ -1,2 +1,2 @@
 # Rock-paper-scissor
-Rock paper scissor using JS implemented as a part of ODIN Project curriculum.
+Rock Paper Scissor , a popular game implemented using HTML,CSS and JS .
