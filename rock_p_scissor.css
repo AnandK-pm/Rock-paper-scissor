@@ -3,6 +3,36 @@ body
     background-color: rgb(20, 20, 20);
     color:white;
 }
+#results
+{
+    text-align: center;
+}
+h1
+{
+    background-color: rgb(3, 3, 36);
+}
+#final
+{
+    font-family: monospace;
+    font-size: 30px;
+    color: green;
+}
+#results
+{
+    font-size: 15px;
+    font-family: monospace;
+}
+#score,#turn
+{
+    font-size: 20px;
+    font-family: monospace;
+}
+#final1
+{
+    font-family: monospace;
+    font-size: 30px;
+    color: red;
+}
 body
 {
     display: flex;
@@ -10,6 +40,23 @@ body
     align-items: center;
     justify-content: center;
 
+}
+button:hover
+{
+    background-color:rgb(243, 243, 250);
+    color:rgb(20, 20, 20) ;
+}
+button
+{
+    border-radius: 10px;
+  background-color: rgb(20, 20, 20); /* Green */
+  border: solid rgb(243, 243, 250) 2px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: monospace;
 }
 .res
 {

@@ -68,6 +68,7 @@ function playGame()
     let res=document.querySelector("#results");
     let turn=document.querySelector("#turn");
     let final=document.querySelector("#final");
+    let final1=document.querySelector("#final1");
     let count=0;
     turn.textContent="Turn number :0";  
     score.textContent="Computer Score : 0 || Your Score : 0";
@@ -79,7 +80,7 @@ function playGame()
             if (player_points > computer_points)
                 final.textContent = "CONGRATULATIONS !! YOU WON ";
             else
-                final.textContent = "Sorry, AI WON!";            
+                final1.textContent = "Sorry, GAME OVER !";            
         }
     }
         resetbut.addEventListener("click",()=>{
@@ -90,6 +91,7 @@ function playGame()
             turn.textContent = "Turn number: 0";
             score.textContent = `Computer Score : 0 || Your Score : 0`;
             final.textContent='';
+            final1.textContent='';
         });
         rockbut.addEventListener("click",()=>
         {
